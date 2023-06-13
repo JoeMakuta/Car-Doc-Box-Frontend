@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 import { Button, Header, MyInput } from "ui";
-import logo from "../asserts/logo cardocbox.png";
-
-export const Logo = ({ width, height }: { width: number; height: number }) => {
-  return <Image src={logo} alt="Logo" width={width} height={height} />;
-};
+import { Logo } from "../components/logo";
 
 export default function Page() {
   const alertText = () => {
