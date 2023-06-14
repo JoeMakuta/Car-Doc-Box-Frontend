@@ -1,19 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import { Checkbox, ConfigProvider, Radio } from "antd";
 import { Button, Header, MyInput } from "ui";
 import { Logo } from "../components/logo";
+import Link from "next/link";
 
 export default function Page() {
   const alertText = () => {
     alert("boop");
   };
   return (
-    <div className=" w-screen flex justify-center items-center h-screen">
-      <div className="max-w-[1500px]  max-h-screen    h-full w-full max-w-screen md:max-h-[900px] xl:flex justify-around  items-center ">
-        <div className="flex flex-col justify-center items-center gap-6 ">
+    <div className=" w-screen flex justify-center items-center h-screen bg-black/10">
+      <div className="max-w-[1500px]  max-h-screen  bg-white  h-full w-full max-w-screen md:max-h-[900px] xl:flex justify-around  items-center ">
+        <div className="flex flex-col justify-center items-center gap-8 ">
           <Logo width={100} height={200} />
-          <div className=" flex flex-col gap-3 justify-center items-center">
+          <div className=" flex flex-col gap-4 justify-center items-center">
             <h1 className=" font-bold text-3xl">Salut encore !</h1>
             <p className=" text-black/60 text-sm">
               Saisissez vos identifiants pour accéder à votre compte.
@@ -33,8 +35,22 @@ export default function Page() {
               type="password"
             />
           </div>
+          <div className=" w-full justify-between flex items-center">
+            <ConfigProvider
+              theme={{
+                token: {
+                  colorPrimary: "#D37E2F",
+                },
+              }}
+            >
+              <Checkbox>Gardez-moi connecté</Checkbox>
+            </ConfigProvider>
+            <Link href={"#"} className="text-sm text-main_color ">
+              Mot de passe oublié ?
+            </Link>
+          </div>
 
-          <Button action={alertText} name="Sign in" />
+          <Button action={alertText} name="SIGN IN" type="primary" />
         </div>
         <div>Hello world !</div>
       </div>
