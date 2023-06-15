@@ -54,7 +54,7 @@ export default function Page() {
               </Link>
             </div>
 
-            <Button action={alertText} name="SIGN IN" type="primary" />
+            <Button action={alertText} name="SIGN IN" type="default" />
           </div>
         </div>
         <div className=" h-full p-6  w-[50%]">
