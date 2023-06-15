@@ -7,6 +7,7 @@ import { Logo } from "../components/logo";
 import Link from "next/link";
 import car from "../asserts/car_image.png";
 import dot from "../asserts/dots.png";
+import VideoCard from "../components/login/videoCard";
 
 export default function Page() {
   const alertText = () => {
@@ -74,15 +75,25 @@ export default function Page() {
                   <div className="flex flex-col gap-1 text-left p-3 ">
                     <h1 className=" font-bold text-lg">Avantages</h1>
                     <p className=" text-xs ">
-                      Un gestionnaire de documents automobiles qui vous aide à
-                      sécuriser et à stocker les documents de votre véhicule
+                      {
+                        "Un gestionnaire de documents automobiles qui vous aide à sécuriser et à stocker les documents de votre véhicule"
+                      }
                     </p>
                   </div>
                 </div>
                 <div className="absolute top-1/2 right-1/2 w-[50%] h-[70%] rounded-full rounded-bl-none bg-main_color/70 "></div>
               </div>
               <div className=" w-[50%] ">
-                <Image src={dot} width={100} height={100} alt="Dots" />
+                <div className=" w-full relative">
+                  <Image
+                    className=" absolute left-0  "
+                    src={dot}
+                    width={100}
+                    height={100}
+                    alt="Dots"
+                  />
+                  <VideoCard />
+                </div>
                 <div className=" w-[30%] h-[35%] rounded-full rounded-br-none bg-[#755350] "></div>
               </div>
             </div>
