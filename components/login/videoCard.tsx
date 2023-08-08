@@ -1,4 +1,5 @@
 import { CiPlay1 } from "react-icons/ci";
+import React from "react";
 
 const VideoCard = () => {
   return (

@@ -1,3 +1,6 @@
+import { Input } from "antd";
+import React from "react";
+
 interface InputType {
   label: string;
   placeholder: string;
@@ -5,9 +8,7 @@ interface InputType {
   type: string;
 }
 
-import { Input } from "antd";
-
-export const MyInput = ({ label, placeholder, size, type }: InputType) => {
+const MyInput = ({ label, placeholder, size, type }: InputType) => {
   return (
     <div className="flex  flex-col px-4 py-1  w-full min-w-[300px] rounded-md bg-black/10 ">
       <label className="text-sm text-black font-bold " htmlFor="">
@@ -32,3 +33,5 @@ export const MyInput = ({ label, placeholder, size, type }: InputType) => {
     </div>
   );
 };
+
+export default MyInput;

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import React from "react";
 
 const Users: { name: string; photo: string; testimony: string }[] = [
   {
@@ -26,3 +27,5 @@ const UsersCard = () => {
     </div>
   );
 };
+
+export default UsersCard
