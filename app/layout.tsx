@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import "../../../packages/ui/style.css";
+import React from "react";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 export default function RootLayout({

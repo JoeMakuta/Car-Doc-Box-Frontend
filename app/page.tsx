@@ -1,12 +1,16 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { Checkbox, ConfigProvider, Radio } from "antd";
-import { Button, Header, MyInput } from "ui";
-import { Logo } from "../components/logo";
 import Link from "next/link";
-import car from "../asserts/car_image.png";
-import dot from "../asserts/dots.png";
+import { Logo } from "../components/logo";
+import VideoCard from "../components/login/videoCard";
+import MyInput from "../components/Input";
+import { Button } from "../components/Button";
+
+// import car from "../assets/dots.png";
+// import dot from "../assets/dots.png";
 
 export default function Page() {
   const alertText = () => {
@@ -53,7 +57,7 @@ export default function Page() {
               </Link>
             </div>
 
-            <Button action={alertText} name="SIGN IN" type="primary" />
+            <Button action={alertText} name="SIGN IN" type="default" />
           </div>
         </div>
         <div className=" h-full p-6  w-[50%]">
@@ -64,25 +68,35 @@ export default function Page() {
             <div className=" flex w-full ">
               <div className="relative flex justify-center items-center w-[50%] ">
                 <div className=" w-[60%] bg-white z-20 rounded-2xl overflow-hidden ">
-                  <Image
+                  {/* <Image
                     className=" w-full "
-                    src={car}
+                    src={"../assets/dots.png"}
                     width={200}
                     height={200}
                     alt="car image"
-                  />
+                  /> */}
                   <div className="flex flex-col gap-1 text-left p-3 ">
                     <h1 className=" font-bold text-lg">Avantages</h1>
                     <p className=" text-xs ">
-                      Un gestionnaire de documents automobiles qui vous aide à
-                      sécuriser et à stocker les documents de votre véhicule
+                      {
+                        "Un gestionnaire de documents automobiles qui vous aide à sécuriser et à stocker les documents de votre véhicule"
+                      }
                     </p>
                   </div>
                 </div>
                 <div className="absolute top-1/2 right-1/2 w-[50%] h-[70%] rounded-full rounded-bl-none bg-main_color/70 "></div>
               </div>
               <div className=" w-[50%] ">
-                <Image src={dot} width={100} height={100} alt="Dots" />
+                <div className=" w-full relative">
+                  {/* <Image
+                    className=" absolute left-0  "
+                    src={"../assets/dots.png"}
+                    width={100}
+                    height={100}
+                    alt="Dots"
+                  /> */}
+                  <VideoCard />
+                </div>
                 <div className=" w-[30%] h-[35%] rounded-full rounded-br-none bg-[#755350] "></div>
               </div>
             </div>
