@@ -20,7 +20,7 @@ export default function Page() {
     <div className=" w-screen flex justify-center items-center h-screen bg-black/10">
       <div className="max-w-[1600px]  max-h-screen  bg-white  h-full w-full max-w-screen md:max-h-[900px] flex justify-between  items-center ">
         <div className=" w-1/2 flex justify-center items-center ">
-          <div className="flex flex-col justify-center w-[60%] items-center gap-8 ">
+          <div className="flex flex-col justify-center w-[60%] items-center gap-6 ">
             <Logo width={100} height={200} />
             <div className=" flex flex-col gap-4 justify-center items-center">
               <h1 className=" font-bold text-3xl">Salut encore !</h1>
