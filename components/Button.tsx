@@ -1,6 +1,4 @@
 "use client";
-
-import * as React from "react";
 import { Button as Btn, ConfigProvider } from "antd";
 
 export const Button = ({

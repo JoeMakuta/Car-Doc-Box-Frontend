@@ -1,5 +1,4 @@
 import { Input } from "antd";
-import React from "react";
 
 interface InputType {
   label: string;
