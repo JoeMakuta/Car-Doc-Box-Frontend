@@ -43,6 +43,7 @@ const DashboardMenu = () => {
       {menus.map((elt, index) => {
         return (
           <Link
+            key={index}
             className={` flex justify-center items-center gap-2 ${
               elt.selected == true ? "font-bold text-main_color " : ""
             }`}
