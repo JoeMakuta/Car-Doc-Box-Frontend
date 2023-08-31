@@ -39,13 +39,13 @@ const menus: { logo: ReactElement; label: string; selected: boolean }[] = [
 
 const DashboardMenu = () => {
   return (
-    <aside className=" flex flex-col justify-center items-start gap-6 ">
+    <aside className=" flex flex-col justify-center items-start gap-2 ">
       {menus.map((elt, index) => {
         return (
           <Link
             key={index}
-            className={` flex justify-center items-center gap-2 ${
-              elt.selected == true ? "font-bold text-main_color " : ""
+            className={` flex justify-center items-center gap-2 p-3 rounded-lg ${
+              elt.selected == true ? "font-bold bg-white text-main_color " : ""
             }`}
             href={elt.label.toLocaleLowerCase()}
           >
