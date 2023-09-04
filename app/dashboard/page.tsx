@@ -9,7 +9,7 @@ import TableAuto from "../../components/dashboard/tableAuto";
 
 const Dashboard = () => {
   return (
-    <section className=" flex flex-col gap-4 ">
+    <section className=" flex flex-col gap-4 w-full ">
       <div className=" flex justify-between items-center ">
         <h1 className=" font-light text-2xl tracking-tight">
           Bienvenu sur CARDOCBOX !

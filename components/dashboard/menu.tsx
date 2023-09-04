@@ -38,8 +38,13 @@ const menus: { logo: ReactElement; label: string; selected: boolean }[] = [
   },
 ];
 
-const DashboardMenu = () => {
-  const [responsive, setResponsive] = useState<boolean>(true);
+const DashboardMenu = ({
+  responsive,
+  setResponsive,
+}: {
+  responsive: boolean;
+  setResponsive: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   return (
     <aside className=" flex flex-col text-sm relative justify-center items-start gap-4 ">
       <BiMenu

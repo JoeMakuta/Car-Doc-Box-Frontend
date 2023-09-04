@@ -14,6 +14,7 @@ const SortingB = () => {
       {buttons.map((elt, index) => {
         return (
           <button
+            key={index}
             className={
               elt.name.toLocaleLowerCase() == selected
                 ? " border-b-4 border-main_color pb-2"
