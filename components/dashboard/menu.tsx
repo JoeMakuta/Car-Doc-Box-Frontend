@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { ReactElement, useState } from "react";
 import { BiMenu } from "react-icons/bi";
 import {
+  BsChevronDoubleRight,
   BsColumnsGap,
   BsFileEarmark,
   BsFillCarFrontFill,
@@ -46,20 +47,23 @@ const DashboardMenu = ({
   setResponsive: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
-    <aside className=" flex flex-col text-sm relative justify-center items-start gap-4 ">
-      <BiMenu
-        className=" cursor-pointer items-center self-end "
+    <aside className=" flex flex-col text-sm justify-center items-start gap-4  ">
+      <BsChevronDoubleRight
+        className={
+          ` cursor-pointer absolute bottom-4  rotate-180 transition-all items-center self-center ` +
+          `${responsive && "rotate-0"}`
+        }
         onClick={() => {
           setResponsive((elt) => !elt);
         }}
-        size={25}
+        size={20}
       />
 
       {menus.map((elt, index) => {
         return (
           <Link
             key={index}
-            className={` flex justify-start items-center w-full  gap-2 p-3 rounded-lg ${
+            className={` flex transition-all  justify-start gap-4 items-center w-full p-3 rounded-lg ${
               elt.selected == true ? " bg-white text-main_color " : ""
             }`}
             href={elt.label.toLocaleLowerCase()}
