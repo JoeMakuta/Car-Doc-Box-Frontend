@@ -51,7 +51,7 @@ const DashboardMenu = ({
       <BsChevronDoubleRight
         className={
           ` cursor-pointer absolute bottom-4  rotate-180 transition-all items-center self-center ` +
-          `${responsive && "rotate-0"}`
+          `${responsive == true && "rotate-0"}`
         }
         onClick={() => {
           setResponsive((elt) => !elt);
@@ -63,7 +63,7 @@ const DashboardMenu = ({
         return (
           <Link
             key={index}
-            className={` flex transition-all  justify-start gap-4 items-center w-full p-3 rounded-lg ${
+            className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
               elt.selected == true ? " bg-white text-main_color " : ""
             }`}
             href={elt.label.toLocaleLowerCase()}
