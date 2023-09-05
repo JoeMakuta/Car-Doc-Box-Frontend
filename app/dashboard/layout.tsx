@@ -11,9 +11,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <ConfigProvider theme={{ token: { colorPrimary: "#D37E2F" } }}>
       <section
-        className={`transition-all  grid grid-cols-[${
-          responsive == true ? 80 : 200
-        }px_1fr] grid-rows-[80px_1fr] relative max-h-screen `}
+        className={`transition-all  grid  grid-rows-[80px_1fr] max-h-screen   ${
+          responsive ? ` grid-cols-[80px_1fr] ` : ` grid-cols-[200px_1fr] `
+        }`}
       >
         <header className=" flex  justify-between p-3 items-center border-b-[1px] border-black/10">
           <Logo height={0} width={100} />
@@ -32,13 +32,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
             <ProfilMenu />
           </div>
         </header>
-        <aside className="border-r-[1px] max-h-screen relative  border-black/10 flex pt-4 bg-main_color text-white gap-12 flex-col items-center min-h-screen  row-start-1 row-end-3">
+        <aside className="border-r-[1px] min-h-screen border-black/10 flex pt-4 bg-main_color text-white  flex-col items-center   row-start-1 row-end-3">
           <DashboardMenu
             responsive={responsive}
             setResponsive={setResponsive}
           />
         </aside>
-        <main className=" p-4 overflow-scroll ">{children}</main>
+        <main className=" p-4 overflow-y-scroll overflow-x-auto ">
+          {children}
+        </main>
       </section>
     </ConfigProvider>
   );

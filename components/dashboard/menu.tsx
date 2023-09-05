@@ -50,8 +50,8 @@ const DashboardMenu = ({
     <aside className=" flex flex-col text-sm justify-center items-start gap-4  ">
       <BsChevronDoubleRight
         className={
-          ` cursor-pointer absolute bottom-4  rotate-180 transition-all items-center self-center ` +
-          `${responsive == true && "rotate-0"}`
+          ` cursor-pointer absolute bottom-4   transition-all items-center self-center ` +
+          `${responsive == true ? "rotate-0" : "rotate-180"}`
         }
         onClick={() => {
           setResponsive((elt) => !elt);
