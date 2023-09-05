@@ -15,11 +15,11 @@ const SortingB = () => {
         return (
           <button
             key={index}
-            className={
-              elt.name.toLocaleLowerCase() == selected
-                ? " border-b-4 border-main_color pb-2"
-                : "pb-2"
-            }
+            className={`${
+              selected == elt.name
+                ? "border-b-4 h-10  transition-transform border-main_color pb-4"
+                : "  pb-8"
+            }`}
             onClick={() => {
               setSelected(elt.name);
             }}

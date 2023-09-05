@@ -43,15 +43,8 @@ export default function Page() {
               />
             </div>
             <div className=" w-full justify-between flex items-center">
-              <ConfigProvider
-                theme={{
-                  token: {
-                    colorPrimary: "#D37E2F",
-                  },
-                }}
-              >
-                <Checkbox>Gardez-moi connecté</Checkbox>
-              </ConfigProvider>
+              <Checkbox>Gardez-moi connecté</Checkbox>
+
               <Link href={"#"} className="text-sm text-main_color ">
                 Mot de passe oublié ?
               </Link>
