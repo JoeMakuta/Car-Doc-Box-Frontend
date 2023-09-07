@@ -11,10 +11,17 @@ import { Button } from "../components/Button";
 
 import car from "../assets/car_image.png";
 import dot from "../assets/dots.png";
+import { useSelector, useDispatch } from "react-redux";
+import userSlice from "../redux/slices/userSlice";
+import { AppDispatch, RootState } from "../redux/store";
 
 export default function Page() {
+  const user = useSelector((state: RootState) => {
+    return state.user;
+  });
+  // const dispatch : AppDispatch = useDispatch();
   const alertText = () => {
-    alert("boop");
+    console.log("The user : ", user);
   };
   return (
     <div className=" w-screen flex justify-center items-center h-screen bg-black/10">

@@ -1,7 +1,10 @@
+"use client";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import { ConfigProvider } from "antd";
+import { Provider } from "react-redux";
+import { store } from "../redux/store";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 export default function RootLayout({
@@ -11,9 +14,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className=" tracking-tight ">
-      <ConfigProvider theme={{ token: { colorPrimary: "#D37E2F" } }}>
-        <body className={inter.className}>{children}</body>
-      </ConfigProvider>
+      <Provider store={store}>
+        <ConfigProvider theme={{ token: { colorPrimary: "#D37E2F" } }}>
+          <body className={inter.className}>{children}</body>
+        </ConfigProvider>
+      </Provider>
     </html>
   );
 }

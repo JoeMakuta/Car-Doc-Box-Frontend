@@ -30,7 +30,16 @@ const columns: ColumnsType<DataType> = [
     filterMode: "tree",
     filterSearch: true,
     // onFilter: (value: string, record) => record.name.startsWith(value),
-    width: "30%",
+  },
+  {
+    title: "Age",
+    dataIndex: "age",
+    sorter: (a, b) => a.age - b.age,
+  },
+  {
+    title: "Age",
+    dataIndex: "age",
+    sorter: (a, b) => a.age - b.age,
   },
   {
     title: "Age",
@@ -52,7 +61,6 @@ const columns: ColumnsType<DataType> = [
     ],
     // onFilter: (value: string, record) => record.address.startsWith(value),
     filterSearch: true,
-    width: "40%",
   },
 ];
 

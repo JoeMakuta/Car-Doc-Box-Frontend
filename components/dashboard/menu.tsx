@@ -11,6 +11,7 @@ import {
 } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
 import { usePathname } from "next/navigation";
+import { Tooltip } from "antd";
 
 const menus: { logo: ReactElement; label: string }[] = [
   {
@@ -60,28 +61,30 @@ const DashboardMenu = ({
 
       {menus.map((elt, index) => {
         return (
-          <Link
-            key={index}
-            className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
-              path.includes(elt.label.toLocaleLowerCase())
-                ? " bg-white text-main_color "
-                : ""
-            }`}
-            href={elt.label.toLocaleLowerCase()}
-            onClick={() => {
-              setSelected(elt.label.toLocaleLowerCase());
-            }}
-          >
-            <span>{elt.logo}</span>
-            <span
-              className={
-                responsive ? " hidden transition-all " : "transition-all"
-              }
+          <Tooltip title={elt.label} placement="right">
+            <Link
+              key={index}
+              className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
+                path.includes(elt.label.toLocaleLowerCase())
+                  ? " bg-white text-main_color "
+                  : ""
+              }`}
+              href={elt.label.toLocaleLowerCase()}
+              onClick={() => {
+                setSelected(elt.label.toLocaleLowerCase());
+              }}
             >
-              {" "}
-              {elt.label}
-            </span>
-          </Link>
+              <span>{elt.logo}</span>
+              <span
+                className={
+                  responsive ? " hidden transition-all " : "transition-all"
+                }
+              >
+                {" "}
+                {elt.label}
+              </span>
+            </Link>
+          </Tooltip>
         );
       })}
     </aside>
