@@ -4,7 +4,7 @@ import { IPoliceAgent } from "../../@types/user.type";
 const initialState: IPoliceAgent = {
   _id: "",
   address: [],
-  birthDate: new Date(),
+  birthDate: new Date().toDateString(),
   email: "",
   firstName: "",
   gender: "M",

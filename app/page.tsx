@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Checkbox, ConfigProvider, Radio } from "antd";
 import Link from "next/link";
@@ -14,14 +14,19 @@ import dot from "../assets/dots.png";
 import { useSelector, useDispatch } from "react-redux";
 import userSlice from "../redux/slices/userSlice";
 import { AppDispatch, RootState } from "../redux/store";
+import loginSlice from "../redux/slices/loginSlice";
 
 export default function Page() {
   const user = useSelector((state: RootState) => {
     return state.user;
   });
+
+  const { setUsername, setPassword } = loginSlice.actions;
+  const login = useSelector((state: RootState) => state.login);
+
   // const dispatch : AppDispatch = useDispatch();
   const alertText = () => {
-    console.log("The user : ", user);
+    console.log("The user : ", login);
   };
   return (
     <div className=" w-screen flex justify-center items-center h-screen bg-black/10">
@@ -37,12 +42,14 @@ export default function Page() {
             </div>
             <div className=" flex flex-col gap-4 w-full ">
               <MyInput
+                setter={setUsername}
                 label="Nom d'utilisateur : "
                 placeholder="Nom d'utilisateur"
                 size="middle"
                 type="text"
               />
               <MyInput
+                setter={setPassword}
                 label="Mot de passe : "
                 placeholder="*********************"
                 size="middle"

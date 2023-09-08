@@ -14,21 +14,13 @@ export const Button = ({
   children?: ReactElement;
 }) => {
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: "#D37E2F",
-        },
-      }}
+    <Btn
+      className="flex justify-center items-center  font-bold h-12  border-main_color border-[1px] hover:text-main_color hover:bg-white bg-main_color w-full text-center rounded-md "
+      onClick={action}
+      type={type}
     >
-      <Btn
-        className="flex justify-center items-center  font-bold h-12  border-main_color border-[1px] hover:text-main_color hover:bg-white bg-main_color w-full text-center rounded-md "
-        onClick={action}
-        type={type}
-      >
-        <span>{children}</span>
-        <span>{name}</span>
-      </Btn>
-    </ConfigProvider>
+      <span>{children}</span>
+      <span>{name}</span>
+    </Btn>
   );
 };

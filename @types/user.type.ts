@@ -8,7 +8,7 @@ export interface IPoliceAgent {
   phone: string[];
   username: string;
   password: string;
-  birthDate: Date;
+  birthDate: string;
   photos?: string[];
   address: string[];
   role: 1 | 2 | 3;
