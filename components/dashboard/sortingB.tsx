@@ -20,7 +20,7 @@ const buttons: TabsProps["items"] = [
 const SortingB = () => {
   return (
     <div className=" flex  ">
-      <Tabs defaultActiveKey="1" items={buttons} />;
+      <Tabs type="line" defaultActiveKey="1" items={buttons} />
     </div>
   );
 };

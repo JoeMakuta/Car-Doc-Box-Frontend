@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   BiCalendarExclamation,
@@ -9,6 +10,7 @@ import {
 import { BsPlus } from "react-icons/bs";
 import { FiCrosshair } from "react-icons/fi";
 import { UserCard } from "../../../components/dashboard/userCard";
+import TableAuto from "../../../components/dashboard/tableAuto";
 
 const Proprietaire = () => {
   return (
@@ -36,7 +38,7 @@ const Proprietaire = () => {
           </button>
         </div>
       </div>
-      <div className=" bg-main_color/10 rounded-lg p-3 ">
+      <div className="flex flex-col gap-4 bg-main_color/10 rounded-lg p-5 ">
         <div>
           <div className=" flex justify-between ">
             <h1>Nouveaux proprietaire</h1>
@@ -46,7 +48,16 @@ const Proprietaire = () => {
             />
           </div>
         </div>
-        <UserCard />
+        <div className=" flex gap-4 w-full overflow-x-scroll">
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+        </div>
+        <TableAuto />
       </div>
     </main>
   );
