@@ -13,26 +13,31 @@ import { FiSettings } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 import { Tooltip } from "antd";
 
-const menus: { logo: ReactElement; label: string }[] = [
+const menus: { logo: ReactElement; label: string; path: string }[] = [
   {
     logo: <BsColumnsGap size={20} />,
     label: "Dashboard",
+    path: "/dashboard",
   },
   {
     logo: <BsFillCarFrontFill size={20} />,
     label: "Automobiles",
+    path: "/dashboard/automobiles",
   },
   {
     logo: <BsPeople size={20} />,
     label: "Proprietaires",
+    path: "/dashboard/proprietaires",
   },
   {
     logo: <BsFileEarmark size={20} />,
     label: "Documents",
+    path: "/dashboard/documents",
   },
   {
     logo: <FiSettings size={20} />,
     label: "Settings",
+    path: "/dashboard/settings",
   },
 ];
 
@@ -65,11 +70,13 @@ const DashboardMenu = ({
             <Link
               key={index}
               className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
-                path.includes(elt.label.toLocaleLowerCase())
+                path == elt.path
+                  ? " bg-white text-main_color "
+                  : index != 0 && path.includes(elt.path)
                   ? " bg-white text-main_color "
                   : ""
               }`}
-              href={elt.label.toLocaleLowerCase()}
+              href={elt.path}
               onClick={() => {
                 setSelected(elt.label.toLocaleLowerCase());
               }}

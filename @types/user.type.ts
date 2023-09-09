@@ -13,4 +13,7 @@ export interface IPoliceAgent {
   address: string[];
   role: 1 | 2 | 3;
   policeLicense: string;
+  createdAt?: string;
+  updatedAt?: string;
+  token: string;
 }
