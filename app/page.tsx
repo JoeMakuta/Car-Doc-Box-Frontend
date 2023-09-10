@@ -60,7 +60,7 @@ export default function Page() {
       setLoading(false);
       Modal.error({
         title: "Erreur",
-        content: error?.message || "Email ou password incorrect !",
+        content: "Email ou password incorrect !",
         okType: "default",
         centered: true,
       });
