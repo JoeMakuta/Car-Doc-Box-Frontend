@@ -6,6 +6,7 @@ import { Card, Card1, Card2 } from "../../components/dashboard/card";
 import SortingB from "../../components/dashboard/sortingB";
 import { DatePicker } from "antd";
 import TableAuto from "../../components/dashboard/tableAuto";
+import Link from "next/link";
 
 const Dashboard = () => {
   return (
@@ -16,10 +17,13 @@ const Dashboard = () => {
         </h1>
         <div className=" flex gap-2 ">
           <DatePicker />
-          <button className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl hover:bg-white hover:text-main_color hover:border hover:border-main_color transition-all text-white ">
+          <Link
+            href={"/dashboard/automobiles/new"}
+            className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl hover:bg-white hover:text-main_color hover:border hover:border-main_color transition-all text-white "
+          >
             <BsPlus size={25} />
             <p>Nouvel automobile</p>
-          </button>
+          </Link>
         </div>
       </div>
       <div className=" flex gap-4">
