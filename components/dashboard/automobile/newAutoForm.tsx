@@ -1,11 +1,16 @@
 import { Select } from "antd";
 import { Upload } from "antd";
 import { Input } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { BsPlus } from "react-icons/bs";
+import { Modal } from "antd";
+import CarTypeForm from "./carTypeForm";
+
 const NewAutoForm = () => {
+  const [showCarTypeModal, setShowCarTypeModal] = useState(false);
+
   return (
-    <form className="transition-all flex flex-col gap-4 p-4">
+    <form className="transition-all min-h-[10vw] flex flex-col gap-4 p-4">
       <h1 className=" text-2xl font-bold ">Information sur l'automobile</h1>
       <div className=" flex gap-10 ">
         <div className=" flex flex-col gap-4 p-5 w-1/2">
@@ -25,7 +30,10 @@ const NewAutoForm = () => {
                 size="large"
                 className=" w-full "
               />
-              <button className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl hover:bg-inherit hover:text-main_color hover:border hover:border-main_color transition-all text-white ">
+              <button
+                type="button"
+                className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl hover:bg-inherit hover:text-main_color hover:border hover:border-main_color transition-all text-white "
+              >
                 <BsPlus size={25} />
                 {/* <p>Ajouter</p> */}
               </button>
@@ -39,7 +47,13 @@ const NewAutoForm = () => {
                 size="large"
                 className=" w-full "
               />
-              <button className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl  hover:border hover:border-main_color transition-all text-white hover:bg-main_color/70 active:bg-black ">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowCarTypeModal((elt) => !elt);
+                }}
+                className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl  hover:border hover:border-main_color transition-all text-white hover:bg-main_color/70 active:bg-black "
+              >
                 <BsPlus size={25} />
                 {/* <p>Ajouter</p> */}
               </button>
@@ -59,6 +73,15 @@ const NewAutoForm = () => {
           </Upload>
         </div>
       </div>
+      <Modal
+        open={showCarTypeModal}
+        onCancel={() => {
+          setShowCarTypeModal((elt) => !elt);
+        }}
+        centered
+      >
+        <CarTypeForm />
+      </Modal>
     </form>
   );
 };
