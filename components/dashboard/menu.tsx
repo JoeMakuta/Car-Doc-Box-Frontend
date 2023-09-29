@@ -66,9 +66,8 @@ const DashboardMenu = ({
 
       {menus.map((elt, index) => {
         return (
-          <Tooltip title={elt.label} placement="right">
+          <Tooltip title={elt.label} key={index} placement="right">
             <Link
-              key={index}
               className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
                 path == elt.path
                   ? " bg-white text-main_color "

@@ -33,7 +33,7 @@ export default function Page() {
 
   const dispatch: AppDispatch = useDispatch();
 
-  const alertText = async () => {
+  const signIn = async () => {
     setLoading(true);
     try {
       const Response: AxiosResponse<
@@ -44,6 +44,7 @@ export default function Page() {
         data: { email: login.username, password: login.password },
       });
       setLoading(false);
+
       if (Response.data.status == 200) {
         await dispatch(setUser(Response.data.data));
         Modal.success({
@@ -58,6 +59,7 @@ export default function Page() {
       }
     } catch (error) {
       setLoading(false);
+      console.log("The response :", error);
       Modal.error({
         title: "Erreur",
         content: "Email ou password incorrect !",
@@ -105,7 +107,7 @@ export default function Page() {
 
             <Button
               loading={loading}
-              action={alertText}
+              action={signIn}
               name="SIGN IN"
               type="default"
             />

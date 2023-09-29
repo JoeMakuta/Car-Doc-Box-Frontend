@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className=" tracking-tight ">
+    <html lang="en" className="text-sm tracking-tight ">
       <Provider store={store}>
         <ConfigProvider theme={{ token: { colorPrimary: "#D37E2F" } }}>
           <body className={inter.className}>{children}</body>
