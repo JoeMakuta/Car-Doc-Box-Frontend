@@ -3,7 +3,7 @@ import userSlice from "./slices/userSlice";
 import loginSlice from "./slices/loginSlice";
 import thunk from "redux-thunk";
 
-import storage from "redux-persist/lib/storage";
+import storage from "./persistStorage";
 import { persistStore, persistReducer, Persistor } from "redux-persist";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
 
@@ -14,23 +14,19 @@ const persistConfig = {
 
 const persistedUserReducer = persistReducer(persistConfig, userSlice.reducer);
 
-const isClient = typeof window !== "undefined";
-export let store: Persistor;
-export let store1: ToolkitStore;
+// const isClient = typeof window !== "undefined";
+export let _store: Persistor;
+export let store: ToolkitStore;
 
-if (isClient) {
-  store1 = configureStore({
-    reducer: {
-      user: isClient ? persistedUserReducer : userSlice.reducer,
-      login: loginSlice.reducer,
-    },
-    middleware: [thunk],
-  });
+store = configureStore({
+  reducer: {
+    user: persistedUserReducer,
+    login: loginSlice.reducer,
+  },
+  middleware: [thunk],
+});
 
-  store = persistStore(store1);
-} else {
-  // To do if the window object is not yet available
-}
+_store = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
