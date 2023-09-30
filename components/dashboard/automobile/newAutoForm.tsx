@@ -16,23 +16,27 @@ const NewAutoForm = () => {
         <div className=" flex flex-col gap-4 p-5 w-1/2">
           <div className="  flex items-center justify-between gap-3">
             <label>Numero chassis : </label>
-            <Input placeholder="765456543" size="large" className=" w-[70%] " />
+            <Input
+              placeholder="765456543"
+              size="middle"
+              className=" w-[70%] "
+            />
           </div>
           <div className=" flex items-center justify-between gap-3 ">
             <label>Brand : </label>
-            <Input placeholder="TOYOTA" size="large" className=" w-[70%] " />
+            <Input placeholder="TOYOTA" size="middle" className=" w-[70%] " />
           </div>
           <div className="  flex items-center justify-between gap-3 ">
             <label>Proprietaire : </label>
             <div className=" w-[70%] flex gap-2 items-center ">
               <Select
                 placeholder="- Please select -"
-                size="large"
+                size="middle"
                 className=" w-full "
               />
               <button
                 type="button"
-                className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl hover:bg-inherit hover:text-main_color hover:border hover:border-main_color transition-all text-white "
+                className="flex  h-9 w-10 text-sm justify-center items-center  bg-main_color rounded-xl    transition-all text-white hover:bg-main_color/70 active:bg-black "
               >
                 <BsPlus size={25} />
                 {/* <p>Ajouter</p> */}
@@ -44,7 +48,7 @@ const NewAutoForm = () => {
             <div className=" w-[70%] flex gap-2 items-center ">
               <Select
                 placeholder="- Please select -"
-                size="large"
+                size="middle"
                 className=" w-full "
               />
               <button
@@ -52,7 +56,7 @@ const NewAutoForm = () => {
                 onClick={() => {
                   setShowCarTypeModal((elt) => !elt);
                 }}
-                className="flex  h-10 text-sm justify-center items-center p-4 bg-main_color rounded-xl  hover:border hover:border-main_color transition-all text-white hover:bg-main_color/70 active:bg-black "
+                className="flex  h-9 w-10 text-sm justify-center items-center  bg-main_color rounded-xl    transition-all text-white hover:bg-main_color/70 active:bg-black "
               >
                 <BsPlus size={25} />
                 {/* <p>Ajouter</p> */}
@@ -79,6 +83,9 @@ const NewAutoForm = () => {
           setShowCarTypeModal((elt) => !elt);
         }}
         centered
+        okType="default"
+        okText="Enregistrer"
+        cancelText="Annuler"
       >
         <CarTypeForm />
       </Modal>

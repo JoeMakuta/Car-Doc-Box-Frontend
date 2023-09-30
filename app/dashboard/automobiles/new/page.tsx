@@ -35,7 +35,8 @@ const NewAutoPage = () => {
         type="navigation"
         current={currentStep}
         onChange={onChangeStep}
-        className="w-[70vw] "
+        className="w-[70vw] max-w-[800px]"
+        size="small"
         items={[
           {
             // status: "process",
@@ -55,7 +56,7 @@ const NewAutoPage = () => {
           },
         ]}
       />
-      {content[currentStep]}
+      <div className=" max-w-[1200px] ">{content[currentStep]}</div>
       <div className=" flex gap-4 self-end ">
         {currentStep != 0 && (
           <button
