@@ -26,6 +26,27 @@ const NewAutoForm = () => {
             <label>Brand : </label>
             <Input placeholder="TOYOTA" size="middle" className=" w-[70%] " />
           </div>
+          <div className=" flex items-center justify-between gap-3 ">
+            <label>Plaque : </label>
+            <div className=" flex gap-3 w-[70%] ">
+              <Select
+                options={[
+                  { value: "DRC", label: "🇨🇩 DRC" },
+                  { value: "Rwanda", label: "🇷🇼 Rwanda" },
+                  { value: "Burundi", label: "🇧🇮 Burundi" },
+                  { value: "Tanzanie", label: "🇹🇿 Tanzanie" },
+                ]}
+                placeholder="Country"
+                size="middle"
+                className=" w-[30%] "
+              />
+              <Input
+                placeholder="462781-NK"
+                size="middle"
+                className=" w-[70%] "
+              />
+            </div>
+          </div>
           <div className="  flex items-center justify-between gap-3 ">
             <label>Proprietaire : </label>
             <div className=" w-[70%] flex gap-2 items-center ">

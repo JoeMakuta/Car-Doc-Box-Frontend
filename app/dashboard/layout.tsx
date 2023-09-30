@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <section
       className={`transition-all  grid  grid-rows-[80px_1fr] max-h-screen   ${
-        responsive ? ` grid-cols-[80px_1fr] ` : ` grid-cols-[200px_1fr] `
+        responsive ? ` grid-cols-[80px_1fr] ` : ` grid-cols-[170px_1fr] `
       }`}
     >
       <Header />

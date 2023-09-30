@@ -68,7 +68,9 @@ const DashboardMenu = ({
         return (
           <Tooltip title={elt.label} key={index} placement="right">
             <Link
-              className={` flex transition-all  justify-start gap-4 items-center  p-3 rounded-lg ${
+              className={` flex transition-all  justify-start gap-4 items-center  ${
+                responsive ? "p-3" : "p-3 px-6"
+              }  rounded-lg ${
                 path == elt.path
                   ? " bg-white text-main_color "
                   : index != 0 && path.includes(elt.path)

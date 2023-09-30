@@ -2,14 +2,14 @@ import { DatePicker, Input, Select, Upload } from "antd";
 import React from "react";
 import { BsPlus } from "react-icons/bs";
 
-const CarAssuranceForm = () => {
+const PinkCardForm = () => {
   return (
     <form className="transition-all flex min-h-[20vw] flex-col gap-4 p-4">
-      <h1 className=" text-2xl font-bold ">Information sur l'assurance</h1>
+      <h1 className=" text-2xl font-bold ">Information sur la carte rose </h1>
       <div className=" flex flex-col  ">
         <div className=" flex flex-col gap-4 p-5 w-1/2">
           <div className="  flex items-center justify-between gap-3">
-            <label>ID Assurance : </label>
+            <label>ID Carte rose : </label>
             <Input
               placeholder="765456543"
               size="middle"
@@ -24,7 +24,7 @@ const CarAssuranceForm = () => {
               className=" w-[70%] "
             />
           </div>
-          <div className=" flex  justify-between gap-3 ">
+          <div className=" flex items-center justify-between gap-3 ">
             <label>Images : </label>
             <div className=" flex flex-col border-[1px] border-main_color border-dashed rounded-xl gap-4 p-3 w-[70%]">
               <Upload
@@ -44,4 +44,4 @@ const CarAssuranceForm = () => {
   );
 };
 
-export default CarAssuranceForm;
+export default PinkCardForm;

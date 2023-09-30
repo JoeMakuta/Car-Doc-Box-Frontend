@@ -6,6 +6,10 @@ import { BsPlus } from "react-icons/bs";
 import NewAutoForm from "../../../../components/dashboard/automobile/newAutoForm";
 import NoContent from "../../../../components/dashboard/automobile/noContent";
 import CarAssuranceForm from "../../../../components/dashboard/automobile/carAssuranceForm";
+import PinkCardForm from "../../../../components/dashboard/automobile/pinkCardForm";
+import CarStickerForm from "../../../../components/dashboard/automobile/carStickerForm";
+import TechControlForm from "../../../../components/dashboard/automobile/techControlForm";
+
 const NewAutoPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
 
@@ -24,8 +28,9 @@ const NewAutoPage = () => {
   const content = [
     <NewAutoForm />,
     <CarAssuranceForm />,
-    <NoContent />,
-    <NoContent />,
+    <PinkCardForm />,
+    <CarStickerForm />,
+    <TechControlForm />,
   ];
 
   return (
@@ -35,24 +40,28 @@ const NewAutoPage = () => {
         type="navigation"
         current={currentStep}
         onChange={onChangeStep}
-        className="w-[70vw] max-w-[800px]"
+        className="w-[70vw] max-w-[1000px]"
         size="small"
         items={[
           {
             // status: "process",
-            title: "Step 1",
+            title: "Automobile",
           },
           {
             // status: "wait",
-            title: "Step 2",
+            title: "Assurance",
           },
           {
             // status: "wait",
-            title: "Step 3",
+            title: "Carte rose",
           },
           {
             // status: "wait",
-            title: "Step 4",
+            title: "Vignette",
+          },
+          {
+            // status: "wait",
+            title: "Controle Technique",
           },
         ]}
       />
@@ -76,7 +85,11 @@ const NewAutoPage = () => {
           }}
           className="  hover:bg-main_color/70 active:bg-black transition-all rounded-lg p-5 flex justify-center items-center  bg-main_color text-white h-12 "
         >
-          {currentStep < 3 ? <p>Suivant</p> : <p>Enregistrer</p>}
+          {currentStep < content.length - 1 ? (
+            <p>Suivant</p>
+          ) : (
+            <p>Enregistrer</p>
+          )}
         </button>
       </div>
     </main>
