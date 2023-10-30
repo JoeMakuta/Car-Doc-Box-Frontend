@@ -108,7 +108,7 @@ export default function Page() {
             <Button
               loading={loading}
               action={signIn}
-              name="SIGN IN"
+              name="SE CONNECTER"
               type="default"
             />
           </div>

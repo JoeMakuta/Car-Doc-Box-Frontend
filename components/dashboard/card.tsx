@@ -1,8 +1,15 @@
 "use client";
 import React from "react";
 import { BiSolidCar } from "react-icons/bi";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { ICar } from "../../@types/car.type";
 
 export const Card = () => {
+  const cars: ICar[] = useSelector((state: RootState) => {
+    return state.cars;
+  });
+
   return (
     <div className=" w-[20vw]  p-4 bg-blue-400/10 border-[1px] border-blue-400 rounded-xl ">
       <div className=" flex justify-between ">
@@ -11,13 +18,17 @@ export const Card = () => {
           <BiSolidCar size={25} color="white" />
         </div>
       </div>
-      <p className="font-semibold text-3xl">5</p>
+      <p className="font-semibold text-3xl">{cars.length}</p>
       <p className=" text-xs">+5 depuis hier.</p>
     </div>
   );
 };
 
 export const Card1 = () => {
+  const cars: ICar[] = useSelector((state: RootState) => {
+    return state.cars;
+  });
+  console.log("Here are the ", cars);
   return (
     <div className=" w-[20vw]  p-4 bg-main_color/10 border-[1px] border-main_color rounded-xl ">
       <div className=" flex justify-between ">
@@ -26,13 +37,16 @@ export const Card1 = () => {
           <BiSolidCar size={25} color="white" />
         </div>
       </div>
-      <p className="font-semibold text-3xl">20</p>
+      <p className="font-semibold text-3xl">{cars.length}</p>
       <p className=" text-xs">+5 depuis hier.</p>
     </div>
   );
 };
 
 export const Card2 = () => {
+  const cars: ICar[] = useSelector((state: RootState) => {
+    return state.cars;
+  });
   return (
     <div className=" w-[20vw]  p-4 bg-green-400/10 border-[1px] border-green-400 rounded-xl ">
       <div className=" flex justify-between ">

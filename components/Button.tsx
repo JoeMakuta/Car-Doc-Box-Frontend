@@ -20,16 +20,19 @@ export const Button = ({
 }) => {
   return (
     <Btn
-      className="flex justify-center items-center  font-bold h-12  border-main_color border-[1px] hover:text-main_color hover:bg-white bg-main_color w-full text-center rounded-md gap-1 "
-      onClick={action}
+      className={`flex justify-center items-center  font-bold h-12  border-main_color border-[1px]  hover:bg-main_color/60  bg-main_color w-full text-center rounded-md gap-1 ${
+        loading ? "bg-main_color/60 cursor-not-allowed " : ""
+      }`}
+      onClick={() => {
+        if (!loading) action();
+      }}
       type={type}
-      disabled={loading}
     >
       {loading === true ? (
-        <FiLoader className=" animate-spin  " size={20} />
+        <FiLoader className="text-black animate-spin  " size={20} />
       ) : null}
       <span>{children}</span>
-      <span>{name}</span>
+      <span className=" text-black ">{name}</span>
     </Btn>
   );
 };

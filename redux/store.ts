@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import storage from "./persistStorage";
 import { persistStore, persistReducer, Persistor } from "redux-persist";
 import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
+import carsSlice from "./slices/carSlice";
 
 const persistConfig = {
   key: "root",
@@ -14,19 +15,16 @@ const persistConfig = {
 
 const persistedUserReducer = persistReducer(persistConfig, userSlice.reducer);
 
-// const isClient = typeof window !== "undefined";
-export let _store: Persistor;
-export let store: ToolkitStore;
-
-store = configureStore({
+export const store: ToolkitStore = configureStore({
   reducer: {
     user: persistedUserReducer,
     login: loginSlice.reducer,
+    cars: carsSlice.reducer,
   },
   middleware: [thunk],
 });
 
-_store = persistStore(store);
+export const _store: Persistor = persistStore(store);
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
