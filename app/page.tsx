@@ -1,26 +1,79 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { Checkbox, ConfigProvider, Radio } from "antd";
+import { Checkbox, ConfigProvider, Modal, Radio } from "antd";
 import Link from "next/link";
 import { Logo } from "../components/logo";
 import VideoCard from "../components/login/videoCard";
 import MyInput from "../components/Input";
 import { Button } from "../components/Button";
-
+import { IServerResponse } from "../@types/response.type";
 import car from "../assets/car_image.png";
 import dot from "../assets/dots.png";
+import { useSelector, useDispatch } from "react-redux";
+import userSlice from "../redux/slices/userSlice";
+import { AppDispatch, RootState } from "../redux/store";
+import loginSlice, { IUserLogin } from "../redux/slices/loginSlice";
+import { ApiClient } from "../axios/helpers";
+import { AxiosResponse } from "axios";
+import { IPoliceAgent } from "../@types/user.type";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  const alertText = () => {
-    alert("boop");
+  const router = useRouter();
+
+  const { setUser } = userSlice.actions;
+  const user: IPoliceAgent = useSelector((state: RootState) => state.user);
+
+  const { setUsername, setPassword } = loginSlice.actions;
+  const login: IUserLogin = useSelector((state: RootState) => state.login);
+
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const dispatch: AppDispatch = useDispatch();
+
+  const signIn = async () => {
+    setLoading(true);
+    try {
+      const Response: AxiosResponse<
+        IServerResponse<IPoliceAgent>,
+        any
+      > = await ApiClient.post({
+        url: "/api/admin/login",
+        data: { email: login.username, password: login.password },
+      });
+      setLoading(false);
+
+      if (Response.data.status == 200) {
+        await dispatch(setUser(Response.data.data));
+        Modal.success({
+          title: "Success",
+          content: Response.data.message,
+          okType: "default",
+          centered: true,
+        });
+        router.push("/dashboard");
+      } else {
+        throw new Error("Server error");
+      }
+    } catch (error) {
+      setLoading(false);
+      console.log("The response :", error);
+      Modal.error({
+        title: "Erreur",
+        content: "Email ou password incorrect !",
+        okType: "default",
+        centered: true,
+      });
+    }
   };
+
   return (
     <div className=" w-screen flex justify-center items-center h-screen bg-black/10">
       <div className="max-w-[1600px]  max-h-screen  bg-white  h-full w-full max-w-screen md:max-h-[900px] flex justify-between  items-center ">
         <div className=" w-1/2 flex justify-center items-center ">
-          <div className="flex flex-col justify-center w-[60%] items-center gap-8 ">
+          <div className="flex flex-col justify-center w-[60%] items-center gap-6 ">
             <Logo width={100} height={200} />
             <div className=" flex flex-col gap-4 justify-center items-center">
               <h1 className=" font-bold text-3xl">Salut encore !</h1>
@@ -30,12 +83,14 @@ export default function Page() {
             </div>
             <div className=" flex flex-col gap-4 w-full ">
               <MyInput
+                setter={setUsername}
                 label="Nom d'utilisateur : "
                 placeholder="Nom d'utilisateur"
                 size="middle"
                 type="text"
               />
               <MyInput
+                setter={setPassword}
                 label="Mot de passe : "
                 placeholder="*********************"
                 size="middle"
@@ -43,21 +98,19 @@ export default function Page() {
               />
             </div>
             <div className=" w-full justify-between flex items-center">
-              <ConfigProvider
-                theme={{
-                  token: {
-                    colorPrimary: "#D37E2F",
-                  },
-                }}
-              >
-                <Checkbox>Gardez-moi connecté</Checkbox>
-              </ConfigProvider>
+              <Checkbox>Gardez-moi connecté</Checkbox>
+
               <Link href={"#"} className="text-sm text-main_color ">
                 Mot de passe oublié ?
               </Link>
             </div>
 
-            <Button action={alertText} name="SIGN IN" type="default" />
+            <Button
+              loading={loading}
+              action={signIn}
+              name="SE CONNECTER"
+              type="default"
+            />
           </div>
         </div>
         <div className=" h-full p-6  w-[50%]">
